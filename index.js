@@ -1,13 +1,15 @@
 // index.js
 // Tiny TwiML server for Twilio <Connect><Stream> with security hardening.
 
+import twilio from "twilio";
 import express from "express";
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import basicAuth from "basic-auth";
-import { twiml as Twiml, validateRequest } from "twilio";
 import dotenv from "dotenv";
 dotenv.config();
+
+const { twiml: Twiml, validateRequest } = twilio;
 
 const {
   PORT = 3000,
